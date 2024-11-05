@@ -31,7 +31,7 @@ func main() {
 			if len(info.Proposer) > 0 {
 				for _, val := range info.Proposer {
 					// Initiate the proposer
-					proposer := paxosImpl.NewProposer(id, val, proposerValue, quorumMap[val], promiseMessagesCh, acceptedMessagesCh, sendProposalCh, communicator, stateManager)
+					proposer := paxosImpl.NewProposer(id, val-1, proposerValue, quorumMap[val], promiseMessagesCh, acceptedMessagesCh, sendProposalCh, communicator, stateManager)
 					go proposer.Listen()
 				}
 			}
