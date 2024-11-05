@@ -1,4 +1,4 @@
-# Paxos Implementation (Partial)
+# Paxos Implementation
  
 This system is a distributed implementation of the Paxos consensus algorithm in Go, orchestrated using Docker and Docker Compose to simulate multiple nodes. The primary goal of the system is to achieve consensus across distributed nodes, with each node playing a specific role such as a Proposer, Acceptor, or Learner.
 
