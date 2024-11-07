@@ -41,7 +41,7 @@ func (a *Acceptor) handlePrepareMessage(message communication.Message) {
 	if message.Payload.Proposal > a.stateManager.GetMinProposal() {
 		a.stateManager.UpdateState(&message.Payload.Proposal, nil, nil)
 	}
-	err := a.tcpCommunicator.SendPromiseMessage(message.Header.SenderID, a.stateManager.GetMinProposal(), a.stateManager.GetAcceptedValue())
+	err := a.tcpCommunicator.SendPromiseMessage(message.Header.SenderID, a.stateManager.GetAcceptedProposal(), a.stateManager.GetAcceptedValue())
 	if err != nil {
 		panic(err.Error())
 	}
@@ -55,8 +55,7 @@ func (a *Acceptor) handleAcceptMessage(message communication.Message) {
 		a.stateManager.UpdateState(&message.Payload.Proposal, &message.Payload.Proposal, &message.Payload.Value)
 	}
 	minProposal := a.stateManager.GetMinProposal()
-	acceptedValue := a.stateManager.GetAcceptedValue()
-	err := a.tcpCommunicator.SendAcceptedMessage(message.Header.SenderID, minProposal, acceptedValue)
+	err := a.tcpCommunicator.SendAcceptedMessage(message.Header.SenderID, minProposal, nil)
 	if err != nil {
 		panic(err.Error())
 	}
