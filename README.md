@@ -4,10 +4,6 @@ This system is a distributed implementation of the Paxos consensus algorithm in 
 
 It is built with Docker and Docker Compose, enabling the setup of multiple nodes for testing. The project includes two test cases, each managed by a separate Docker Compose file. A Makefile is provided to streamline building, running, and cleaning up the test environment.
 
-## Student Details
-Name: Akshay Gunjur Surya Prakash
-USN: 002765803
-
 ## Prerequisites
 
 Ensure you have the following installed on your machine:
